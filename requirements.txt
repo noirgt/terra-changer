@@ -1,0 +1,8 @@
+jinja2
+#six==1.16.0
+pyTelegramBotAPI
+pyyaml
+python-telegram-bot
+paramiko
+validators
+kazoo
