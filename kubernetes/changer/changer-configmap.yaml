@@ -1,0 +1,74 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terra-changer-env
+  labels:
+    app: terra-changer
+data:
+  PROXMOX_USER: "<your_proxmox_user>"
+  PROXMOX_PASS: "<your_proxmox_password>"
+  PROXMOX_HOST: "<your_proxmox_ip_address>"
+  PROXMOX_MACADDRESS: "<proxmox_mac_interface_connected_to_mikrotik>"
+  SWITCH_USER: "<your_mikrotik_user>"
+  SWITCH_PASS: "<your_mikrotik_password>"
+  SWITCH_HOST: "<your_mikrotik_ip_address>"
+  SWITCH_INTERFACE: "<mikrotik_name_interface_connected_to_proxmox>"
+  ZOOKEEPER_HOSTS: "crs-zookeeper-0.zookeeper.svc.cluster.local, crs-zookeeper-1.zookeeper.svc.cluster.local, crs-zookeeper-2.zookeeper.svc.cluster.local"
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terra-changer-conf
+  labels:
+    app: terra-changer
+data:
+  file-changer-config: |
+    ---
+    telebot: "1061265303:AAFEIqgUMJUpgr3dk7Ts9YxAbePnfaATMsU"
+    telegroup: "-1001431041081"
+    terra_project_name: "terra-infra"
+
+    all_vms_files:
+      qemu: "/changer/terra-infra/terraform/qemus.tf"
+      lxc: "/changer/terra-infra/terraform/lxcs.tf"
+  file-ssh-privkey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    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
+    -----END OPENSSH PRIVATE KEY-----
