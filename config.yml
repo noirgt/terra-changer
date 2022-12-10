@@ -1,0 +1,8 @@
+---
+telebot: "<your_telegram_bot_id>"
+telegroup: "<your_telegram_group_id>"
+terra_project_name: "<your_bot_project-name>"
+
+all_vms_files:
+  qemu: "/changer/terra-infra/terraform/qemus.tf"
+  lxc: "/changer/terra-infra/terraform/lxcs.tf"
