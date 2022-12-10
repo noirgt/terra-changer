@@ -1,0 +1,7 @@
+locals {
+  {{ vms_type }} = {
+    {% for one_vm in vms_list -%}
+    "{{ one_vm.name }}" : {"cores": {{ one_vm.conf.cores }}, "memory": {{ one_vm.conf.memory }}{% if vms_type == "qemus" %}, "image": "{{ image }}"{% endif %}},
+    {% endfor -%}
+  }
+}
